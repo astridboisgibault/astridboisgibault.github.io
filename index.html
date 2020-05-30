@@ -59,9 +59,6 @@ display: flex;
 am4core.useTheme(am4themes_animated);
 // Themes end
 
-// images base url
-var image_base_url = "https://res.cloudinary.com/detsursmb/image/upload/fragments/"
-
 // create chart
 var chart = am4core.create("chartdiv", am4charts.TreeMap);
 chart.hiddenState.properties.opacity = 0; // this makes initial fade in effect
@@ -114,7 +111,7 @@ image0.height = am4core.percent(90);
 image0.adapter.add("href", function (href, target) {
 var dataItem = target.parent.dataItem;
 if (dataItem) {
-    var image_url = image_base_url + dataItem.treeMapDataItem.image + ".jpg";
+    var image_url = dataItem.treeMapDataItem.image;
 return image_url;
 }
 });
@@ -159,320 +156,304 @@ image1.nonScaling = false;
 image1.adapter.add("href", function (href, target) {
 var dataItem = target.parent.dataItem;
 if (dataItem) {
-    var image_url = image_base_url + dataItem.treeMapDataItem.image + ".jpg";
+    var image_url = dataItem.treeMapDataItem.image;
 return image_url;
 }
 });
 
 chart.data = [{
-"name": "Fragments",
-"image": "couleur_rumdimentaire_xq39hc",
-"color": "grey",
-  "value": 1,
-"children": [{
-"image": "DSC_0034_kb1l2m",
-    "name": "ljlkjl",
-"value": 1
-}, {
-"image": "DSCN3681_jebpt2",
-    "name": "mlkmlk",
-"value": 1
-}, {
-"image": "DSCN3682_uehhqd",
-    "name": "lkjlkjlkj",
-"value": 1
-}, {
-"image": "IMG_9651_qfkspy",
-    "name": "kmlkmlk",
-"value": 1
-}, {
-"image": "IMG_9625_l082tp",
-    "name": "lkjlkjklj",
-"value": 1
-}, {
-"image": "_DSC9773_ttt6bn",
-    "name": "lkjlkjkl",
-"value": 1
-}, {
-"image": "_DSC9771_vcfnus",
-    "name": "lkjlkjlk",
-"value": 1
-}, {
-"image": "_DSC9804_yx4sgf",
-    "name": "kjljklkj",
-"value": 1
-}, {
-"image": "_DSC9805_zneabq",
-    "name": "lkjlkj",
-"value": 1
-}]
-}, {
-"name": "Moule",
-"image": "DSC_0003_y1npaj",
-"color": "lightgrey",  
-  "value": 1,
-"children": [{
-"image": "_DSC9777_gu0eh0",
-"value": 1
-}, {
-"image": "_DSC9463_mhkv69",
-"value": 1
-}, {
-"image": "_DSC9492_kcllzv",
-"value": 1
-}, {
-"image": "_DSC9479_ypgbjv",
-"value": 1
-}, {
-"image": "_DSC9433_cdscsp",
-"value": 1
-}, {
-"image": "_DSC9451_qlmerb",
-"value": 1
-}, {
-"image": "_DSC9412_dlmump",
-"value": 1
-}, {
-"image": "IMG_0392_vmltjs",
-"value": 1
-}]
-}, {
-"name": "Inclusion",
-"image": "DSC_0019_wksr6e",
-"color": "#8ec6c5",  
-  "value": 1,
-"children": [{
-"image": "DSC_0018_-_Copie_hu3eoq",
-"value": 1
-}, {
-"image": "DSC_0018_yb5ozt",
-"value": 1
-}, {
-"image": "Sans_titre_5_pg0k62",
-"value": 1
-}, {
-"image": "Sans_titre_1_un8vql",
-"value": 1
-}, {
-"image": "",
-"value": 1
-}]
-}, {
-"name": "Ornements colorés",
-"image": "IMG_9621_zdvle5",
-"color": "white",
-  "value": 1,
-"children": [{
-"image": "_DSC9778_avw2fj",
-"value": 1
-}, {
-"image": "_DSC9783_rmek9w",
-"value": 1
-}, {
-"image": "_DSC9768_tf6u82",
-"value": 1
-}, {
-"image": "IMG_0400_2_b5yvdo",
-"value": 1
-}, {
-"image": "_DSC9779_rjzkne",
-"value": 1
-}, {
-"image": "_DSC9780_e897of",
-"value": 1
-}, {
-"image": "IMG_9654_w45adi",
-"value": 1
-}, {
-"image": "IMG_9662_pqmtj7",
-"value": 1
-}, {
-"image": "_DSC9800_oum3ia",
-"value": 1
-}, {
-"image": "_DSC9814_gniey1",
-"value": 1
-}]
-}, {
-"name": "Texture-surface",
-"image": "_DSC9785_hqpp7v",
-  "color": "white",
-  "value": 1,
-"children": [{
-"image": "_DSC9806_lkyls6",
-"value": 1
-}, {
-"image": "_DSC9809_gcbark",
-"value": 1
-}, {
-"image": "_DSC9812_b9libv",
-"value": 1
-}, {
-"image": "_DSC9802_mpuss7",
-"value": 1
-}, {
-"image": "_DSC9787_hn4xqa",
-"value": 1
-}, {
-"image": "_DSC9789_cag1bc",
-"value": 1
-}, {
-"image": "_DSC9784_q46udg",
-"value": 1
-}]
-}, {
-"name": "Texture-Sculpture",
-"image": "DSC_0035_vpyqxf",
-"color": "white",
-  "value": 1,
-"children": [{
-"image": "DSC_0027_vbnebo",
-"value": 1
-}, {
-"image": "DSC_0014_u2cqym",
-"value": 1
-}, {
-"image": "forme2_dxoqbm",
-"value": 1
-}, {
-"image": "forme3_swqhet",
-"value": 1
-}, {
-"image": "forme3_image4_xj5gbf",
-"value": 1
-}, {
-"image": "molécule_image_fuhnxl",
-"value": 1
-}, {
-"image": "",
-"value": 1
-}]
-}, {
-"name": "Iconographie",
-  "image": "Iconographie",
-  "color": "white",
-  "value": 1,
-"children": [{
-"name": "Les Nus, Dewar et Gicquel, 2017",
-"image": "Les Nus, Dewar et Gicquel, 2017",
-"value": 1
-}, {
-"name": "Scene V, Isabelle Cornarot, 2015",
-"image": "Scene V, Isabelle Cornarot, 2015",
-"value": 1
-}, {
-"name": "Red heart, Maude Maris, 2018",
-"image": "Red heart, Maude Maris, 2018",
-"value": 1
-}, {
-"name": "Mycelium Chair, Eric Klarenbeek, 2019",
-"image": "Mycelium Chair, Eric Klarenbeek, 2019",
-"value": 1
-}, {
-"name": "Public Thoughts, Julien Berthier, 2019",
-"image": "Public Thoughts, Julien Berthier, 2019",
-"value": 1
-}, {
-"name": "Rauschen, Katinka Bock, 2019",
-"image": "Rauschen, Katinka Bock, 2019",
-"value": 1
-}, {
-"name": "Exposition La fabrique du Vivant, Centre Pompidou",
-"image": "Exposition 'La fabrique du Vivant', Centre Pompidou",
-"value": 1
-}, {
-"name": "Double Squint, Franz West, 2010",
-"image": "Double Squint, Franz West, 2010",
-"value": 1
-}, {
-"name": "Lemur, Franz West, 2009",
-"image": "Lemur, Franz West, 2009",
-"value": 1
-}, {
-"name": "Exposition ‘Jus d’orange’ au Palais de Tokyo, Dewar et Gicquel, 2013.",
-"image": "Exposition ‘Jus d’orange’ au Palais de Tokyo, Dewar et Gicquel, 2013.",
-"value": 1
-}]
-}, {
-"name": "Iconographie : Archéologie",
-  "image": "iconographie",
-  "color": "white",
-  "value": 1,
-"children": [{
-"name": "Ai Weiwei, Dropping a Han dynasty urn, 1995",
-"image": "Ai Weiwei, Dropping a Han dynasty urn, 1995",
-"value": 1
-}, {
-"name": "Botanica, Studio Formafantasma, 2011",
-"image": "Botanica, Studio Formafantasma, 2011",
-"value": 1
-}, {
-"name": "Cast Studio, Thomas Houseago, 2018",
-"image": "Cast Studio, Thomas Houseago, 2018",
-"value": 1
-}, {
-"name": "L'enterrement du tableau-piège, Daniel Spoerri, 1983",
-"image": "L'enterrement du tableau-piège, Daniel Spoerri, 1983",
-"value": 1
-}, {
-"name": "History Trash Dig, Mark Dion, 1995",
-"image": "History Trash Dig, Mark Dion, 1995",
-"value": 1
-}, {
-"name": "Stèle du roi Untash Napirisha, musée du Louvre",
-"image": "Stèle du roi Untash Napirisha, musée du Louvre",
-"value": 1
-}, {
-"name": "Cemetery of golden eggs, Erika Verzutti",
-"image": "Cemetery of golden eggs, Erika Verzutti",
-"value": 1
-}, {
-"name": "Gober, ERika Verzutti, 2016",
-"image": "Gober, ERika Verzutti, 2016",
-"value": 1
-}, {
-"name": "Mineral, Erika Verzutti, 2014.",
-"image": "Mineral, Erika Verzutti, 2014.",
-"value": 1
-}, {
-"name": " We The People, Danh Vo, 2011",
-"image": " We The People, Danh Vo, 2011",
-"value": 1
-}]
-}, {
-"name": "Iconographie : Objets Historiques",
-"image": "Iconographie : Objets Historiques",
-  "color": "white",
-  "value": 1,
-  "children": [{
-"name": "Plateau du 'jeu des 58 trous', Musée du Louvre",
-"image": "Plateau du 'jeu des 58 trous', Musée du Louvre",
-"value": 1
-}, {
-"name": "Plateau du 'jeu des 20 cases', Musée du Louvre",
-"image": "Plateau du 'jeu des 20 cases', Musée du Louvre",
-"value": 1
-}, {
-"name": "Jeu de parcours, Musée du Louvre",
-"image": "Jeu de parcours, Musée du Louvre",
-"value": 1
-}, {
-"name": "Lamellophone, Angola, fin du XlXème, Musée du Quai Branly",
-"image": "Lamellophone, Angola, fin du XlXème, Musée du Quai Branly",
-"value": 1
-}, {
-"name": "Collections d'instruments à air, Musée de l'Homme",
-"image": "Collections d'instruments à air, Musée de l'Homme",
-"value": 1
-}, {
-"name": "Instrument de musique, Nigéria, Musée du Quai Branly",
-"image": "Instrument de musique, Nigéria, Musée du Quai Branly",
-"value": 1
-}, {
-"name": "Flûte globulaire, Mexique, terre cuite, Musée du Quai Branly",
-"image": "Flûte globulaire, Mexique, terre cuite, Musée du Quai Branly",
-"value": 1
-}]
+	"name": "Fragments",
+	"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846596/couleur_rumdimentaire_lryuo0.jpg",
+	"color": "#f9dfb2",
+	"children": [{
+			"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846724/_DSC9805_vohxbr.jpg",
+			"value": 1
+		}, {
+			"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846709/IMG_9651_nh5u1x.jpg",
+			"value": 1
+		}, {
+			"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846709/IMG_9651_nh5u1x.jpg",
+			"value": 1
+		}, {
+			"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846690/_DSC9804_d6rwug.jpg",
+			"value": 1
+		}, {
+			"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846690/DSCN3682_bjaeyd.jpg",
+			"value": 1
+		}, {
+			"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846668/IMG_9625_vceapm.jpg",
+			"value": 1
+		}, {
+			"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846666/DSCN3681_pdjmfq.jpg",
+			"value": 1
+		}, {
+			"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846665/_DSC9773_xfwohb.jpg",
+			"value": 1
+		}, {
+			"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846642/DSC_0034_hzbbfz.jpg",
+			"value": 1
+		}, {
+			"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846612/_DSC9771_buwu5h.jpg",
+			"value": 1
+		},
+		{
+			"name": "vide",
+			"color": "white"
+		}
+	]
+}, {
+	"name": "Moule",
+	"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590848307/DSC_0003_cwst2u.jpg",
+	"color": "#e8f6a8",
+	"children": [{
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590848325/_DSC9463_gxpdfk.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590848316/IMG_0392_xbxgpb.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590848301/_DSC9412_qf161i.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590848299/_DSC9777_ycviwz.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590848293/_DSC9492_qq1j5v.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590848272/_DSC9479_lwcbxi.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590848289/_DSC9433_zspjtx.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590848275/_DSC9451_jplvzk.jpg",
+		"value": 1
+	}]
+}, {
+	"name": "Inclusion",
+	"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846760/DSC_0019_oi4mzz.jpg",
+	"color": "#fafe9c",
+	"children": [{
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846749/Sans_titre_1_isk4v8.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846747/DSC_0018_pszezr.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846747/DSC_0018_-_Copie_wm7lpt.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846732/Sans_titre_5_dmpsl1.jpg",
+		"value": 1
+	}]
+}, {
+	"name": "Ornements colorés",
+	"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590850445/IMG_9621_yffkj9.jpg",
+	"color": "#ecd1fa",
+	"children": [{
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590850460/_DSC9783_svcp6g.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590850459/_DSC9780_uirigv.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590850459/IMG_9654_u1nqdt.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590850457/IMG_9662_aufiae.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590850447/_DSC9779_hjlzpb.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590850441/_DSC9814_xepygl.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590850438/_DSC9778_yg7yl2.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590850435/IMG_0400_2_v56lzi.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590850431/_DSC9768_whpyw8.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590850629/_DSC9800_m5z639.jpg",
+		"value": 1
+	}]
+}, {
+	"name": "Texture-surface",
+	"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565362/_DSC9802_mpuss7.jpg",
+	"color": "#fdd2af",
+	"children": [{
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565377/_DSC9812_b9libv.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565358/_DSC9787_hn4xqa.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590600452/_DSC9785_hqpp7v.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590599848/_DSC9806_lkyls6.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590599834/_DSC9809_gcbark.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565344/_DSC9784_q46udg.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565344/_DSC9784_q46udg.jpg",
+		"value": 1
+	}]
+}, {
+	"name": "Sclupture-surface",
+	"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590566549/DSC_0035_vpyqxf.jpg",
+	"color": "#dad5d1",
+	"children": [{
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590600739/forme2_dxoqbm.png",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590566542/DSC_0014_u2cqym.jpg",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590600737/forme3_swqhet.png",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590600736/forme3_image4_xj5gbf.png",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590600736/mol%C3%A9cule_image_fuhnxl.png",
+		"value": 1
+	}, {
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590566548/DSC_0027_vbnebo.jpg",
+		"value": 1
+	}]
+}, {
+	"name": "Iconographie",
+	"image": "Iconographie",
+	"color": "#f9dfb2",
+	"children": [{
+		"name": "Les Nus, Dewar et Gicquel, 2017",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590598929/Les%20Nus%2C%20Dewar%20et%20Gicquel%2C%202017.jpg",
+		"value": 1
+	}, {
+		"name": "Scene V, Isabelle Cornarot, 2015",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590598393/Scene%20V%2C%20Isabelle%20Cornarot%2C%202015.png",
+		"value": 1
+	}, {
+		"name": "Red heart, Maude Maris, 2018",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565334/Red%20heart%2C%20Maude%20Maris%2C%202018.jpg",
+		"value": 1
+	}, {
+		"name": "Mycelium Chair, Eric Klarenbeek, 2019",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565334/Mycelium%20Chair%2C%20Eric%20Klarenbeek%2C%202019.jpg",
+		"value": 1
+	}, {
+		"name": "Public Thoughts, Julien Berthier, 2019",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565332/Public%20Thoughts%2C%20Julien%20Berthier%2C%202019.jpg",
+		"value": 1
+	}, {
+		"name": "Rauschen, Katinka Bock, 2019",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565332/Rauschen%2C%20Katinka%20Bock%2C%202019.jpg",
+		"value": 1
+	}, {
+		"name": "Exposition La fabrique du Vivant, Centre Pompidou",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565328/Exposition%20%22La%20fabrique%20du%20Vivant%22%2C%20Centre%20Pompidou%22.jpg",
+		"value": 1
+	}, {
+		"name": "Double Squint, Franz West, 2010",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565322/Double%20Squint%2C%20Franz%20West%2C%202010.jpg",
+		"value": 1
+	}, {
+		"name": "Lemur, Franz West, 2009",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565315/Lemur%2C%20Franz%20West%2C%202009.jpg",
+		"value": 1
+	}, {
+		"name": "Exposition ‘Jus d’orange’ au Palais de Tokyo, Dewar et Gicquel, 2013.",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565313/Exposition%20%E2%80%98Jus%20d%E2%80%99orange%E2%80%99%20au%20Palais%20de%20Tokyo%2C%20Dewar%20et%20Gicquel%2C%202013..jpg",
+		"value": 1
+	}]
+}, {
+	"name": "Iconographie : Archéologie",
+	"image": "iconographie",
+	"color": "#f9dfb2",
+	"children": [{
+		"name": "Ai Weiwei, Dropping a Han dynasty urn, 1995",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565402/Ai%20Weiwei%2C%20Dropping%20a%20Han%20dynasty%20urn%2C%201995.jpg",
+		"value": 1
+	}, {
+		"name": "Botanica, Studio Formafantasma, 2011",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565336/Botanica%2C%20Studio%20Formafantasma%2C%202011.jpg",
+		"value": 1
+	}, {
+		"name": "Cast Studio, Thomas Houseago, 2018",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565334/Cast%20Studio%2C%20Thomas%20Houseago%2C%202018.jpg",
+		"value": 1
+	}, {
+		"name": "L'enterrement du tableau-piège, Daniel Spoerri, 1983",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565313/L%27enterrement%20du%20tableau-pi%C3%A8ge%2C%20Daniel%20Spoerri%2C%201983.jpg",
+		"value": 1
+	}, {
+		"name": "History Trash Dig, Mark Dion, 1995",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565323/History%20Trash%20Dig%2C%20Mark%20Dion%2C%201995.png",
+		"value": 1
+	}, {
+		"name": "Stèle du roi Untash Napirisha, musée du Louvre",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565333/St%C3%A8le%20du%20roi%20Untash%20Napirisha%2C%20mus%C3%A9e%20du%20Louvre.jpg",
+		"value": 1
+	}, {
+		"name": "Cemetery of golden eggs, Erika Verzutti",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565315/Cemetery%20of%20golden%20eggs%2C%20Erika%20Verzutti.jpg",
+		"value": 1
+	}, {
+		"name": "Gober, ERika Verzutti, 2016",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565314/Gober%2C%20ERika%20Verzutti%2C%202016.jpg",
+		"value": 1
+	}, {
+		"name": "Mineral, Erika Verzutti, 2014.",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565313/Mineral%2C%20Erika%20Verzutti%2C%202014..jpg",
+		"value": 1
+	}, {
+		"name": "We The People, Danh Vo, 2011",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846763/We%20The%20People%2C%20Danh%20Vo%2C%202011.jpg",
+		"value": 1
+	}]
+}, {
+	"name": "Iconographie : Objets Historiques",
+	"image": "Iconographie : Objets Historiques",
+	"color": "#f9dfb2",
+	"children": [{
+		"name": "Plateau du 'jeu des 58 trous', Musée du Louvre",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565333/Plateau%20du%20%22jeu%20des%2058%20trous%22%2C%20Mus%C3%A9e%20du%20Louvre.jpg",
+		"value": 1
+	}, {
+		"name": "Plateau du 'jeu des 20 cases', Musée du Louvre",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565333/Plateau%20de%20jeu%20des%20%2220%20cases%22%2C%20Mus%C3%A9e%20du%20Louvre.jpg",
+		"value": 1
+	}, {
+		"name": "Jeu de parcours, Musée du Louvre",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565333/Jeu%20de%20parcours%2C%20Mus%C3%A9e%20du%20Louvre.jpg",
+		"value": 1
+	}, {
+		"name": "Lamellophone, Angola, fin du XlXème, Musée du Quai Branly",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565332/Lamellophone%2C%20Angola%2C%20fin%20du%20XlX%C3%A8me%2C%20Mus%C3%A9e%20du%20Quai%20Branly.jpg",
+		"value": 1
+	}, {
+		"name": "Collections d'instruments à air, Musée de l'Homme",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565332/Collections%20d%27instruments%20%C3%A0%20air%2C%20Mus%C3%A9e%20de%20l%27Homme.jpg",
+		"value": 1
+	}, {
+		"name": "Instrument de musique, Nigéria, Musée du Quai Branly",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565331/Instrument%20de%20musique%2C%20Nig%C3%A9ria%2C%20Mus%C3%A9e%20du%20Quai%20Branly.jpg",
+		"value": 1
+	}, {
+		"name": "Flûte globulaire, Mexique, terre cuite, Musée du Quai Branly",
+		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590565314/Fl%C3%BBte%20globulaire%2C%20Mexique%2C%20terre%20cuite%2C%20Mus%C3%A9e%20du%20Quai%20Branly.jpg",
+		"value": 1
+	}]
 }];
 </script>
 </body>
