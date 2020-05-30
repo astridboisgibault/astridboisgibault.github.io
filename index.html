@@ -1,0 +1,468 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <style>
+	body {
+  		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+#chartdiv {
+  width: 100%;
+  height: 1200px;
+}
+  </style>
+
+</head>
+
+<body>
+<div id="chartdiv"></div>
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+<script type="text/javascript">
+/**
+ * ---------------------------------------
+ * This demo was created using amCharts 4.
+ *
+ * For more information visit:
+ * https://www.amcharts.com/
+ *
+ * Documentation is available at:
+ * https://www.amcharts.com/docs/v4/
+ * ---------------------------------------
+ */
+
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+// images base url
+var image_base_url = "https://res.cloudinary.com/detsursmb/image/upload/fragments/"
+
+// create chart
+var chart = am4core.create("chartdiv", am4charts.TreeMap);
+chart.hiddenState.properties.opacity = 0; // this makes initial fade in effect
+chart.layoutAlgorithm = chart.squarify;
+
+// define data fields
+chart.dataFields.value = "value";
+chart.dataFields.name = "name";
+chart.dataFields.image = "image";
+chart.dataFields.children = "children";
+chart.dataFields.color = "color";
+
+chart.navigationBar = new am4charts.NavigationBar();
+chart.homeText = "TEXT INITIAL";
+
+// only one level visible initially
+chart.maxLevels = 1;
+
+var level0SeriesTemplate = chart.seriesTemplates.create("0");
+level0SeriesTemplate.stroke = am4core.color("red");
+
+//tooltip
+level0SeriesTemplate.tooltip.getFillFromObject = true;
+level0SeriesTemplate.stroke = am4core.color("black");
+//level0SeriesTemplate.tooltip.stroke = am4core.color("white");
+//level0SeriesTemplate.tooltip.background.fillOpacity = 0;
+//level0SeriesTemplate.tooltip.background.borderOpacity = 0;
+level0SeriesTemplate.tooltip.label.text = "{name}";
+//level0SeriesTemplate.tooltip.horizontalCenter = "left";
+//level0SeriesTemplate.tooltip.verticalCenter = "bottom";
+
+// APPARENCE DES CARTES DE NIVEAU 1
+var column0Template = level0SeriesTemplate.columns.template;
+var hoverState0 = column0Template.states.create("hover");
+column0Template.tooltipText = "{name}";
+//column0Template.tooltipY = 0;
+//column0Template.tooltipX = 0;
+
+// add logo
+var image0 = column0Template.createChild(am4core.Image);
+image0.opacity = 1;
+image0.align = "center";
+image0.valign = "top";
+image0.width = am4core.percent(100);
+image0.height = am4core.percent(100);
+
+// add adapter for href to load correct image
+image0.adapter.add("href", function (href, target) {
+var dataItem = target.parent.dataItem;
+if (dataItem) {
+    var image_url = image_base_url + dataItem.treeMapDataItem.image + ".jpg";
+return image_url;
+}
+});
+
+// étiquettes niveau 0
+var bullet0 = level0SeriesTemplate.bullets.push(new am4charts.LabelBullet());
+bullet0.locationY = 0;
+bullet0.locationX = 0;
+bullet0.label.dx = 10;
+bullet0.label.dy = -8;
+bullet0.label.text = "{name}";
+bullet0.label.fill = am4core.color("white");
+bullet0.label.horizontalCenter = "left";
+bullet0.label.verticalCenter = "bottom";
+//bullet0.fillOpacity = 0;
+bullet0.strokeOpacity = 0;
+
+// level1 series template
+var level1SeriesTemplate = chart.seriesTemplates.create("1");
+level1SeriesTemplate.columns.template.fillOpacity = 1;
+level1SeriesTemplate.tooltip.disabled = true;
+level1SeriesTemplate.stroke = am4core.color("black");
+level1SeriesTemplate.strokeWidth = 2;
+level1SeriesTemplate.excludeFromTotal = true;
+
+// create hover state
+var column1Template = level1SeriesTemplate.columns.template;
+var hoverState1 = column1Template.states.create("hover");
+
+// add logo
+var image1 = column1Template.createChild(am4core.Image);
+image1.opacity = 1;
+image1.align = "top";
+image1.valign = "middle";
+image1.width = am4core.percent(100);
+image1.height = am4core.percent(100);
+
+// add adapter for href to load correct image
+image1.adapter.add("href", function (href, target) {
+var dataItem = target.parent.dataItem;
+if (dataItem) {
+    var image_url = image_base_url + dataItem.treeMapDataItem.image + ".jpg";
+return image_url;
+}
+});
+
+chart.data = [
+  {"name": "vide",
+    "image": "ljlkjkl",
+  "color": "white",
+  "value": 1
+  },{
+"name": "Fragments",
+"image": "couleur_rumdimentaire_xq39hc",
+"color": "white",
+  "value": 1,
+"children": [{
+"image": "DSC_0034_kb1l2m",
+    "name": "ljlkjl",
+    "color": "violet",
+"value": 1
+}, {
+"image": "DSCN3681_jebpt2",
+    "name": "mlkmlk",
+"value": 1
+}, {
+"image": "DSCN3682_uehhqd",
+    "name": "lkjlkjlkj",
+"value": 1
+}, {
+"image": "IMG_9651_qfkspy",
+    "name": "kmlkmlk",
+"value": 1
+}, {
+"image": "IMG_9625_l082tp",
+    "name": "lkjlkjklj",
+"value": 1
+}, {
+"image": "_DSC9773_ttt6bn",
+    "name": "lkjlkjkl",
+"value": 1
+}, {
+"image": "_DSC9771_vcfnus",
+    "name": "lkjlkjlk",
+"value": 1
+}, {
+"image": "_DSC9804_yx4sgf",
+    "name": "kjljklkj",
+"value": 1
+}, {
+"image": "_DSC9805_zneabq",
+    "name": "lkjlkj",
+"value": 1
+},
+{
+  "name": "vide",
+  "color": "white"
+}]
+}, {
+"name": "Moule",
+"image": "DSC_0003_y1npaj",
+"color": "white",  
+  "value": 1,
+"children": [{
+"image": "_DSC9777_gu0eh0",
+"value": 1
+}, {
+"image": "_DSC9463_mhkv69",
+"value": 1
+}, {
+"image": "_DSC9492_kcllzv",
+"value": 1
+}, {
+"image": "_DSC9479_ypgbjv",
+"value": 1
+}, {
+"image": "_DSC9433_cdscsp",
+"value": 1
+}, {
+"image": "_DSC9451_qlmerb",
+"value": 1
+}, {
+"image": "_DSC9412_dlmump",
+"value": 1
+}, {
+"image": "IMG_0392_vmltjs",
+"value": 1
+}]
+}, {
+"name": "Inclusion",
+"image": "DSC_0019_wksr6e",
+"color": "white",  
+  "value": 1,
+"children": [{
+"image": "DSC_0018_-_Copie_hu3eoq",
+"value": 1
+}, {
+"image": "DSC_0018_yb5ozt",
+"value": 1
+}, {
+"image": "Sans_titre_5_pg0k62",
+"value": 1
+}, {
+"image": "Sans_titre_1_un8vql",
+"value": 1
+}, {
+"image": "",
+"value": 1
+}]
+}, {
+"name": "Ornements colorés",
+"image": "IMG_9621_zdvle5",
+"color": "white",
+  "value": 1,
+"children": [{
+"image": "_DSC9778_avw2fj",
+"value": 1
+}, {
+"image": "_DSC9783_rmek9w",
+"value": 1
+}, {
+"image": "_DSC9768_tf6u82",
+"value": 1
+}, {
+"image": "IMG_0400_2_b5yvdo",
+"value": 1
+}, {
+"image": "_DSC9779_rjzkne",
+"value": 1
+}, {
+"image": "_DSC9780_e897of",
+"value": 1
+}, {
+"image": "IMG_9654_w45adi",
+"value": 1
+}, {
+"image": "IMG_9662_pqmtj7",
+"value": 1
+}, {
+"image": "_DSC9800_oum3ia",
+"value": 1
+}, {
+"image": "_DSC9814_gniey1",
+"value": 1
+}]
+}, {
+"name": "Texture-surface",
+"image": "_DSC9785_hqpp7v",
+  "color": "white",
+  "value": 1,
+"children": [{
+"image": "_DSC9806_lkyls6",
+"value": 1
+}, {
+"image": "_DSC9809_gcbark",
+"value": 1
+}, {
+"image": "_DSC9812_b9libv",
+"value": 1
+}, {
+"image": "_DSC9802_mpuss7",
+"value": 1
+}, {
+"image": "_DSC9787_hn4xqa",
+"value": 1
+}, {
+"image": "_DSC9789_cag1bc",
+"value": 1
+}, {
+"image": "_DSC9784_q46udg",
+"value": 1
+}]
+}, {
+"name": "Texture-Sculpture",
+"image": "DSC_0035_vpyqxf",
+"color": "white",
+  "value": 1,
+"children": [{
+"image": "DSC_0027_vbnebo",
+"value": 1
+}, {
+"image": "DSC_0014_u2cqym",
+"value": 1
+}, {
+"image": "forme2_dxoqbm",
+"value": 1
+}, {
+"image": "forme3_swqhet",
+"value": 1
+}, {
+"image": "forme3_image4_xj5gbf",
+"value": 1
+}, {
+"image": "molécule_image_fuhnxl",
+"value": 1
+}, {
+"image": "",
+"value": 1
+}]
+}, {
+"name": "Iconographie",
+  "image": "Iconographie",
+  "color": "white",
+  "value": 1,
+"children": [{
+"name": "Les Nus, Dewar et Gicquel, 2017",
+"image": "Les Nus, Dewar et Gicquel, 2017",
+"value": 1
+}, {
+"name": "Scene V, Isabelle Cornarot, 2015",
+"image": "Scene V, Isabelle Cornarot, 2015",
+"value": 1
+}, {
+"name": "Red heart, Maude Maris, 2018",
+"image": "Red heart, Maude Maris, 2018",
+"value": 1
+}, {
+"name": "Mycelium Chair, Eric Klarenbeek, 2019",
+"image": "Mycelium Chair, Eric Klarenbeek, 2019",
+"value": 1
+}, {
+"name": "Public Thoughts, Julien Berthier, 2019",
+"image": "Public Thoughts, Julien Berthier, 2019",
+"value": 1
+}, {
+"name": "Rauschen, Katinka Bock, 2019",
+"image": "Rauschen, Katinka Bock, 2019",
+"value": 1
+}, {
+"name": "Exposition La fabrique du Vivant, Centre Pompidou",
+"image": "Exposition 'La fabrique du Vivant', Centre Pompidou",
+"value": 1
+}, {
+"name": "Double Squint, Franz West, 2010",
+"image": "Double Squint, Franz West, 2010",
+"value": 1
+}, {
+"name": "Lemur, Franz West, 2009",
+"image": "Lemur, Franz West, 2009",
+"value": 1
+}, {
+"name": "Exposition ‘Jus d’orange’ au Palais de Tokyo, Dewar et Gicquel, 2013.",
+"image": "Exposition ‘Jus d’orange’ au Palais de Tokyo, Dewar et Gicquel, 2013.",
+"value": 1
+}]
+}, {
+"name": "Iconographie : Archéologie",
+  "image": "iconographie",
+  "color": "white",
+  "value": 1,
+"children": [{
+"name": "Ai Weiwei, Dropping a Han dynasty urn, 1995",
+"image": "Ai Weiwei, Dropping a Han dynasty urn, 1995",
+"value": 1
+}, {
+"name": "Botanica, Studio Formafantasma, 2011",
+"image": "Botanica, Studio Formafantasma, 2011",
+"value": 1
+}, {
+"name": "Cast Studio, Thomas Houseago, 2018",
+"image": "Cast Studio, Thomas Houseago, 2018",
+"value": 1
+}, {
+"name": "L'enterrement du tableau-piège, Daniel Spoerri, 1983",
+"image": "L'enterrement du tableau-piège, Daniel Spoerri, 1983",
+"value": 1
+}, {
+"name": "History Trash Dig, Mark Dion, 1995",
+"image": "History Trash Dig, Mark Dion, 1995",
+"value": 1
+}, {
+"name": "Stèle du roi Untash Napirisha, musée du Louvre",
+"image": "Stèle du roi Untash Napirisha, musée du Louvre",
+"value": 1
+}, {
+"name": "Cemetery of golden eggs, Erika Verzutti",
+"image": "Cemetery of golden eggs, Erika Verzutti",
+"value": 1
+}, {
+"name": "Gober, ERika Verzutti, 2016",
+"image": "Gober, ERika Verzutti, 2016",
+"value": 1
+}, {
+"name": "Mineral, Erika Verzutti, 2014.",
+"image": "Mineral, Erika Verzutti, 2014.",
+"value": 1
+}, {
+"name": " We The People, Danh Vo, 2011",
+"image": " We The People, Danh Vo, 2011",
+"value": 1
+}]
+}, {
+"name": "Iconographie : Objets Historiques",
+"image": "Iconographie : Objets Historiques",
+  "color": "white",
+  "value": 1,
+  "children": [{
+"name": "Plateau du 'jeu des 58 trous', Musée du Louvre",
+"image": "Plateau du 'jeu des 58 trous', Musée du Louvre",
+"value": 1
+}, {
+"name": "Plateau du 'jeu des 20 cases', Musée du Louvre",
+"image": "Plateau du 'jeu des 20 cases', Musée du Louvre",
+"value": 1
+}, {
+"name": "Jeu de parcours, Musée du Louvre",
+"image": "Jeu de parcours, Musée du Louvre",
+"value": 1
+}, {
+"name": "Lamellophone, Angola, fin du XlXème, Musée du Quai Branly",
+"image": "Lamellophone, Angola, fin du XlXème, Musée du Quai Branly",
+"value": 1
+}, {
+"name": "Collections d'instruments à air, Musée de l'Homme",
+"image": "Collections d'instruments à air, Musée de l'Homme",
+"value": 1
+}, {
+"name": "Instrument de musique, Nigéria, Musée du Quai Branly",
+"image": "Instrument de musique, Nigéria, Musée du Quai Branly",
+"value": 1
+}, {
+"name": "Flûte globulaire, Mexique, terre cuite, Musée du Quai Branly",
+"image": "Flûte globulaire, Mexique, terre cuite, Musée du Quai Branly",
+"value": 1
+}]
+}];
+</script>
+</body>
+</html>
