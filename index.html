@@ -17,11 +17,27 @@
   width: 100%;
   height: 1200px;
 }
+#projectHeader {
+ padding-right: 15px;
+ padding-left: 15px;
+display: flex;
+}
+#projectName {
+ width: 50%;
+}
+#projectAuthor {
+ width: 50%;
+ text-align: right;
+}
   </style>
 
 </head>
 
 <body>
+<div id="projectHeader"> 
+	<div id="projectName">TITRE DU PROJET</div>
+	<div id="projectAuthor">Astrid Boisgibault</div>
+</div>
 <div id="chartdiv"></div>
 <script src="https://www.amcharts.com/lib/4/core.js"></script>
 <script src="https://www.amcharts.com/lib/4/charts.js"></script>
@@ -59,7 +75,7 @@ chart.dataFields.children = "children";
 chart.dataFields.color = "color";
 
 chart.navigationBar = new am4charts.NavigationBar();
-chart.homeText = "TEXT INITIAL";
+chart.homeText = "Titre initial";
 
 // only one level visible initially
 chart.maxLevels = 1;
@@ -118,8 +134,9 @@ bullet0.strokeOpacity = 0;
 var level1SeriesTemplate = chart.seriesTemplates.create("1");
 level1SeriesTemplate.columns.template.fillOpacity = 1;
 level1SeriesTemplate.tooltip.disabled = true;
-level1SeriesTemplate.stroke = am4core.color("black");
-level1SeriesTemplate.strokeWidth = 2;
+level1SeriesTemplate.stroke = am4core.color("transparent");
+level1SeriesTemplate.strokeOpacity = 0;
+level1SeriesTemplate.strokeWidth = 1;
 level1SeriesTemplate.excludeFromTotal = true;
 
 // create hover state
@@ -129,10 +146,13 @@ var hoverState1 = column1Template.states.create("hover");
 // add logo
 var image1 = column1Template.createChild(am4core.Image);
 image1.opacity = 1;
-image1.align = "top";
+image1.align = "center";
 image1.valign = "middle";
-image1.width = am4core.percent(100);
-image1.height = am4core.percent(100);
+image1.width = am4core.percent(90);
+image1.height = am4core.percent(90);
+image1.stroke = am4core.color("black");
+image1.strokeWidth = 2;
+image1.nonScaling = false;
 
 // add adapter for href to load correct image
 image1.adapter.add("href", function (href, target) {
@@ -156,7 +176,6 @@ chart.data = [
 "children": [{
 "image": "DSC_0034_kb1l2m",
     "name": "ljlkjl",
-    "color": "violet",
 "value": 1
 }, {
 "image": "DSCN3681_jebpt2",
