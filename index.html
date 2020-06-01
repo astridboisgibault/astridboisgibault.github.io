@@ -39,6 +39,47 @@ display: flex;
 	<div id="projectAuthor">Astrid Boisgibault</div>
 </div>
 <div id="chartdiv"></div>
+<div>
+<br><br>
+<b>Note d'usage – Contexte de création et de réflexion</b>
+<br><br>
+J'ai organisé mon travail suivant les différents modes de transformations opérés sur les matériaux que j'utilise, et les types de natures d'objets (sculpture-surface-texture-ornement).<br>
+La matière, les matériaux qui sont le point de départ de mes travaux, sont destinés à subir des mutations qui les propulsent hors de leur perception habituelle, ils sont accidentés, fragmentés, donc ignorés et uniques. 
+<br><br>
+Ils font des allers-retours entre différents états, organique, moderne, ancien, figé, ce qui donne des objets, sculptures qui n'ont pas de fonction propre, mais qui semblent parfois imiter le  réel, et ont une dualité entre vivant et inerte, naturel et factice. <br>
+J'ai commencé d'abord par des assemblages de matière, en métamorphosant, augmentant des ressources naturelles, pauvres, en voulant leur donner des qualités nouvelles, les rendant précieuses, pérennes, méconnaissables. Le temps a un rôle très important dans le processus ; grâce à la céramique, au plâtre, il faut faire sédimenter, sécher, faner afin de changer l'impression du temps et de l'âge, donné par l'aspect visuel de mes travaux. Le principe du moule m'a beaucoup interessé car il permet de créer une forme d'apparence lisse avec une économie de moyen, en unissant des matières sans lien a priori.<br>
+<br>
+J'ai ensuite continué ces métamorphoses, non plus en juxtaposant simplement des matériaux, mais en créant des textures, des surfaces, et de la couleur, qui jusque là était toujours uniquement contenue dans les matériaux utilisés.
+<br><br>
+Chaque objet, pris seul, porte un geste, une transformation, qui s'adaptent en permanence à chaque particularité d'un matériau spécifique. Cette unicité fait penser à des reliques ou des fossiles, qui  ont une temporalité indéfine qui évoquent des époques potentiellement préhistoriques. Dans leur ensemble, les reliques forment une archéologie rêvée, factice, qui comportent des objets différents natures.
+La matière numérique qui sert de support à la présentation de mon travail est une manière similaire de créer : insérer des images dans une trame faite de l'utilisation d'un langage préexistant et métamorphosé. 
+<br><br>
+<b>Note d'intention, recherche du terrain de prospection</b>
+<br><br>
+Matière réelle- temps recrée.
+<br><br>
+Pour avancer dans la recherche de matériaux qui jouent avec le temps, j'aimerais les rattacher à une narration cohérente et complète : comment créer cette Histoire fictive, et une collection de travaux, d'objets qui en témoignent ?<br>
+Créer des faux, des contrefaçons de sculptures : quelles sont les techniques de moulage et de reproduction ? Quelle est la place de la parodie ?<br>
+Vers l'archéologie et l'anthropologie :<br>
+quelles formes les objets communs à toute civilisation, prennent-ils dans mon archéologie personnelle ? (outils, alimentation, bâtiments, œuvres d'art)<br>
+Quelles sont les méthodes de datation des matériaux, comment contourner ou recréer ces techniques ?<br>
+Comment se fait le choix des matériaux, en fonction de la géographie, du climat, des techniques ?<br>
+Quelles sont les méthodes de prospection et de classification dans la récolte de données et d'objets, avec une approche scientifique, à transposer dans ma pratique artistique ?<br>
+Les tessons en archéologie : le métier de classement et de recherche des céramologues<br>
+Fabriquer des instruments de musique : proche de mon travail dans les formes mais avec une utilité, qui n'est pas toujours évidente au premier abord, en restant à la frontière entre fonctionnel et imaginaire.<br>
+<br>
+<br>
+<br>
+<i>La théorie de la Fiction-panier</i>, Ursula K. Le Guin<br>
+<i>La Vallée de l'éternel retour</i>, Ursula K. Le Guin <br>
+<i>L'archéologie du savoir</i>, Michel Foucault<br>
+<i>Penser/classer</i>, Georges Perec<br>
+<i>Mythe de l'atlantide</i>, Critias, Platon<br>
+<i>Making and growing: Anthropological studies of organisms and artefacts</i>, Tim Ingold<br>
+<i>Le geste et la parole</i>, A. Leroi-Gourhan<br>
+<i>L'invention du quotidien</i>, M. de Certeau <br>
+<i>La structure des mythes</i>, <i>Le serpent au corps rempli de poissons</i>, <i>Anthropologie structurale</i>, C. Lévi-Strauss
+</div>
 <script src="https://www.amcharts.com/lib/4/core.js"></script>
 <script src="https://www.amcharts.com/lib/4/charts.js"></script>
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
@@ -72,7 +113,7 @@ chart.dataFields.children = "children";
 chart.dataFields.color = "color";
 
 chart.navigationBar = new am4charts.NavigationBar();
-chart.homeText = "Titre initial";
+chart.homeText = "Catégories";
 
 // only one level visible initially
 chart.maxLevels = 1;
@@ -132,14 +173,15 @@ bullet0.strokeOpacity = 0;
 // level1 series template
 var level1SeriesTemplate = chart.seriesTemplates.create("1");
 level1SeriesTemplate.columns.template.fillOpacity = 1;
-level1SeriesTemplate.tooltip.disabled = true;
+level1SeriesTemplate.tooltip.disabled = false
 level1SeriesTemplate.strokeWidth = 6;
-level1SeriesTemplate.tooltip.stroke = am4core.color("white");
 level1SeriesTemplate.excludeFromTotal = true;
 
 // create hover state
 var column1Template = level1SeriesTemplate.columns.template;
 var hoverState1 = column1Template.states.create("hover");
+
+column1Template.tooltipText = "{name}";
 
 // add logo
 var image1 = column1Template.createChild(am4core.Image);
@@ -169,7 +211,7 @@ chart.data = [{
 			"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846724/_DSC9805_vohxbr.jpg",
 			"value": 1
 		}, {
-			"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846709/IMG_9651_nh5u1x.jpg",
+			"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590857343/IMG_9625_kebq9p.jpg",
 			"value": 1
 		}, {
 			"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590846709/IMG_9651_nh5u1x.jpg",
@@ -202,7 +244,7 @@ chart.data = [{
 		}
 	]
 }, {
-	"name": "Moule",
+	"name": "Moulage",
 	"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590848307/DSC_0003_cwst2u.jpg",
 	"color": "#e8f6a8",
 	"children": [{
@@ -248,9 +290,9 @@ chart.data = [{
 		"value": 1
 	}]
 }, {
-	"name": "Ornements colorés",
+	"name": "Ornements textiles",
 	"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590850445/IMG_9621_yffkj9.jpg",
-	"color": "#ecd1fa",
+	"color": "#ebb380",
 	"children": [{
 		"image": "https://res.cloudinary.com/detsursmb/image/upload/v1590850460/_DSC9783_svcp6g.jpg",
 		"value": 1
