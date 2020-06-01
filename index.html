@@ -29,6 +29,10 @@ display: flex;
  width: 50%;
  text-align: right;
 }
+#text {
+ padding-right: 15px;
+ padding-left: 15px;
+}
   </style>
 
 </head>
@@ -39,7 +43,7 @@ display: flex;
 	<div id="projectAuthor">Astrid Boisgibault</div>
 </div>
 <div id="chartdiv"></div>
-<div>
+<div id="text">
 <br><br>
 <b>Note d'usage – Contexte de création et de réflexion</b>
 <br><br>
@@ -164,7 +168,7 @@ bullet0.locationX = 0;
 bullet0.label.dx = 10;
 bullet0.label.dy = -8;
 bullet0.label.text = "{name}";
-bullet0.label.fill = am4core.color("white");
+bullet0.label.fill = am4core.color("#977272");
 bullet0.label.horizontalCenter = "left";
 bullet0.label.verticalCenter = "bottom";
 //bullet0.fillOpacity = 0;
